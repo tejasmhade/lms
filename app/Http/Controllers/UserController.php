@@ -82,9 +82,10 @@ class UserController extends Controller
             return response()->json($response, 500);
         }
         $response['status'] = 'success';
+        $response['user'] = \Auth::user();
         $response['token'] = $token;
         $response['message'] = "Logged in successfully.";
-        return response()->json(compact('token'));
+        return response()->json($response, 200);
     }
 
     /**
